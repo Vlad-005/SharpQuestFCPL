@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "wjv3ok73IY0=",
+  "success": true,
+  "projectFilePath": "/home/student/SharpQuest-2026-main/src/Capstone.Core/Capstone.Core.csproj",
+  "expectedPackageFiles": [
+    "/home/student/.nuget/packages/microsoft.netcore.app.ref/9.0.20/microsoft.netcore.app.ref.9.0.20.nupkg.sha512",
+    "/home/student/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.20/microsoft.aspnetcore.app.ref.9.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

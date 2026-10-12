@@ -1,0 +1,15 @@
+/home/student/SharpQuest-2026-main/src/Capstone.Core/bin/Debug/net9.0/Capstone.Core.deps.json
+/home/student/SharpQuest-2026-main/src/Capstone.Core/bin/Debug/net9.0/Capstone.Core.dll
+/home/student/SharpQuest-2026-main/src/Capstone.Core/bin/Debug/net9.0/Capstone.Core.pdb
+/home/student/SharpQuest-2026-main/src/Capstone.Core/bin/Debug/net9.0/SharpQuest.Contracts.dll
+/home/student/SharpQuest-2026-main/src/Capstone.Core/bin/Debug/net9.0/SharpQuest.Contracts.pdb
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.csproj.AssemblyReference.cache
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.AssemblyInfoInputs.cache
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.AssemblyInfo.cs
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.csproj.CoreCompileInputs.cache
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.43E9D204.Up2Date
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.dll
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/refint/Capstone.Core.dll
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/Capstone.Core.pdb
+/home/student/SharpQuest-2026-main/src/Capstone.Core/obj/Debug/net9.0/ref/Capstone.Core.dll
