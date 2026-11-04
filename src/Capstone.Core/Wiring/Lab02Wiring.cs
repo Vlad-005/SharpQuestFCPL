@@ -14,11 +14,15 @@ public class Lab02Wiring : ILab02Wiring
         if (seed is < 1 or > 100)
             throw new ArgumentOutOfRangeException(nameof(seed), "Seed must be between 1 and 100.");
 
-        var categories = Enum.GetValues<ItemCategory>();
-        return new Item(
-            $"sample-{seed}",
-            $"Sample Item {seed}",
-            categories[(seed - 1) % categories.Length],
-            (seed - 1) % 10);
+        var id = $"sample-{seed}";
+        var displayName = $"Sample Item {seed}";
+        var requiredLevel = (seed - 1) % 10;
+
+        return ((seed - 1) % 3) switch
+        {
+            0 => new Weapon(id, displayName, requiredLevel),
+            1 => new Armor(id, displayName, requiredLevel),
+            _ => new Consumable(id, displayName, requiredLevel)
+        };
     }
 }

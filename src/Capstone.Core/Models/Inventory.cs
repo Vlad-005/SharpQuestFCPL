@@ -1,14 +1,30 @@
+using System.Collections;
 using SharpQuest.Contracts;
 
 namespace Capstone.Core.Models;
 
-public class Inventory : IItemStore, IInventory
+public class Inventory : IItemStore, IInventory, IEnumerable<IItem>
 {
     private readonly List<InventoryStack> _stacks = [];
+
+    public event Action<IItem>? ItemAdded;
 
     public int Count => _stacks.Count;
 
     public IReadOnlyList<InventoryStack> Stacks => _stacks.ToArray();
+
+    public IItem this[int index]
+    {
+        get
+        {
+            if (index < 0 || index >= _stacks.Count)
+                throw new ArgumentOutOfRangeException(nameof(index));
+
+            return _stacks[index].Item;
+        }
+    }
+
+    public IItem? this[string id] => FindById(id);
 
     public void Add(IItem item)
     {
@@ -17,6 +33,7 @@ public class Inventory : IItemStore, IInventory
             throw new ArgumentException($"An item with Id '{item.Id}' is already in the inventory.", nameof(item));
 
         _stacks.Add(new InventoryStack(item, 1));
+        ItemAdded?.Invoke(item);
     }
 
     public IItem? FindById(string id)
@@ -84,4 +101,12 @@ public class Inventory : IItemStore, IInventory
 
         return true;
     }
+
+    public IEnumerator<IItem> GetEnumerator()
+    {
+        foreach (var stack in _stacks)
+            yield return stack.Item;
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

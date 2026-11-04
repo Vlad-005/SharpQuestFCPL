@@ -2,20 +2,15 @@ using SharpQuest.Contracts;
 
 namespace Capstone.Core.Models;
 
-public class Item : IItem
+public abstract class Item : IItem
 {
-    public Item(
-        string id,
-        string displayName,
-        ItemCategory category = ItemCategory.Miscellaneous,
-        int requiredLevel = 0)
+    protected Item(string id, string displayName, ItemCategory category, int requiredLevel = 0)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(id);
         ArgumentException.ThrowIfNullOrWhiteSpace(displayName);
         if (!Enum.IsDefined(category))
             throw new ArgumentOutOfRangeException(nameof(category));
-        if (requiredLevel < 0)
-            throw new ArgumentOutOfRangeException(nameof(requiredLevel));
+        ArgumentOutOfRangeException.ThrowIfNegative(requiredLevel);
 
         Id = id;
         DisplayName = displayName;
@@ -27,4 +22,6 @@ public class Item : IItem
     public string DisplayName { get; }
     public ItemCategory Category { get; }
     public int RequiredLevel { get; }
+
+    public abstract string Describe();
 }

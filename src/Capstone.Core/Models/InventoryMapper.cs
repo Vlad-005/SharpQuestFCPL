@@ -21,7 +21,7 @@ public class InventoryMapper : IItemMapper
         {
             Id = item.Id,
             DisplayName = item.DisplayName,
-            Category = gameItem?.Category ?? ItemCategory.Miscellaneous,
+            Category = gameItem?.Category ?? ItemCategory.Consumable,
             RequiredLevel = gameItem?.RequiredLevel ?? 0
         };
         return JsonSerializer.Serialize(dto, JsonOptions);
@@ -44,11 +44,17 @@ public class InventoryMapper : IItemMapper
                 return null;
             }
 
-            return new Item(
-                dto.Id,
-                dto.DisplayName,
-                dto.Category ?? ItemCategory.Miscellaneous,
-                dto.RequiredLevel ?? 0);
+            var id = dto.Id;
+            var displayName = dto.DisplayName;
+            var requiredLevel = dto.RequiredLevel ?? 0;
+
+            return (dto.Category ?? ItemCategory.Consumable) switch
+            {
+                ItemCategory.Weapon => new Weapon(id, displayName, requiredLevel),
+                ItemCategory.Armor => new Armor(id, displayName, requiredLevel),
+                ItemCategory.Consumable => new Consumable(id, displayName, requiredLevel),
+                _ => null
+            };
         }
         catch (JsonException)
         {
